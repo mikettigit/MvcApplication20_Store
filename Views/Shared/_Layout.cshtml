@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="/image/favicon.png" rel="icon" />
+    <title>Электрокомпоненты</title>
+    <meta name="description" content="Электрокомпоненты">
+    <!-- CSS Part Start-->
+    <link rel="stylesheet" type="text/css" href="/js/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="/css/owl.transitions.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
+    <!-- CSS Part End-->
+</head>
+<body>
+    <div class="wrapper-wide">
+        <div id="header">
+            <!-- Header Start-->
+            <header class="header-row">
+                <div class="container">
+                    <div class="table-container">
+                        <!-- Logo Start -->
+                        <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
+                            <div id="logo"><a href="/"><img class="img-responsive" src="/image/logo.png" title="MarketShop" alt="MarketShop" /></a></div>
+                        </div>
+                        <!-- Logo End -->
+                        
+                        <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div id="cart">
+                                <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="heading dropdown-toggle">
+                                    <span style="font-size:32px;"><i class="fa fa-phone" style="color: #3e7cb4;"></i>@CommonHtmlHelpers.Phone()</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Search Start-->
+                        @*<div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
+                            <div id="search" class="input-group">
+                                <input id="filter_name" type="text" name="search" value="" placeholder="Search" class="form-control input-lg" />
+                                <button type="button" class="button-search"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>*@
+                        <!-- Search End-->
+                    </div>
+                </div>
+            </header>
+            <!-- Header End-->
+            <!-- Main Menu Start-->
+            <div class="container">
+                <nav id="menu" class="navbar">
+                    <div class="navbar-header"> <span class="visible-xs visible-sm"> Menu <b></b></span></div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a class="home_link" title="Home" href="/Home/Index"><span>Home</span></a></li>
+                            <li><a href="/Home/Index"><span>О нас</span></a></li>
+                            <li><a href="/"><span>Каталог</span></a></li>
+                            <li><a href="/Catalog/Brands"><span>Бренды</span></a></li>
+                            <li class="contact-link"><a href="/Home/Contacts">Контакты</a></li>
+                            <li class="custom-link-right">
+                                <a href="/Cart">
+                                    <span class="cart-icon pull-left flip"></span>
+                                    <strong>В корзине: <span id="cart-total">2</span></strong>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!-- Main Menu End-->
+        </div>
+        
+        @RenderBody()
+
+        <!--Footer Start-->
+        <footer id="footer">
+            <div class="fpart-first">
+                <div class="container">
+                    <div class="row">
+                        <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <h5>Контакты</h5>
+                            <ul>
+                                <li class="address"><i class="fa fa-map-marker"></i>@CommonHtmlHelpers.Address()</li>
+                                <li class="mobile"><i class="fa fa-phone"></i>@CommonHtmlHelpers.Phone()</li>
+                                <li class="email"><i class="fa fa-envelope"></i><a href="mailto:@CommonHtmlHelpers.Email()">@CommonHtmlHelpers.Email()</a></li>
+                            </ul>
+                        </div>
+                        <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                            <h5>Информация</h5>
+                            <ul>
+                                <li><a href="/Home/Index">О компании</a></li>
+                                <li><a href="/Home/Contacts">Контакты</a></li>
+                            </ul>
+                        </div>
+                        <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                            <h5>Каталог</h5>
+                            <ul>
+                                <li><a href="/Catalog/Index">Каталог</a></li>
+                                <li><a href="/Catalog/Brands">Бренды</a></li>
+                            </ul>
+                        </div>
+                        <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                            @*<h5>Extras</h5>
+                            <ul>
+                                <li><a href="gift-voucher.html">Gift Vouchers</a></li>
+                            </ul>*@
+                        </div>
+                        <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <h5>Подписка</h5>
+                            <div class="form-group">
+                                <label class="control-label" for="subscribe">Подпишитесь, чтобы получать новости.</label>
+                                <input id="signup" type="email" required="" placeholder="Email" name="email" class="form-control">
+                            </div>
+                            <input type="submit" value="Отправить" class="btn btn-primary">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fpart-second">
+                <div class="container">
+                    <div id="powered" class="clearfix">
+                        <div class="powered_text pull-left flip">
+                            <p>electrocomponents-shop.ru © 2017</p>
+                        </div>
+                        <div class="social pull-right flip"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/socialicons/twitter.png" alt="Twitter" title="Twitter"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/socialicons/google_plus.png" alt="Google+" title="Google+"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/socialicons/rss.png" alt="RSS" title="RSS"> </a> </div>
+                    </div>
+                    <div class="bottom-row">
+                        <div class="custom-text text-center">
+                            <p>*здесь можно разместить юридическую информацию и сноски. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                        @*<div class="payments_types"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/payment/payment_paypal.png" alt="paypal" title="PayPal"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/payment/payment_american.png" alt="american-express" title="American Express"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/payment/payment_2checkout.png" alt="2checkout" title="2checkout"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/payment/payment_discover.png" alt="discover" title="Discover"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/image/payment/payment_mastercard.png" alt="mastercard" title="MasterCard"></a> </div>*@
+                    </div>
+                </div>
+            </div>
+            <div id="back-top"><a data-toggle="tooltip" title="Back to Top" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
+        </footer>
+        <!--Footer End-->
+    </div>
+    <!-- JS Part Start-->
+    <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easing-1.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.dcjqaccordion.min.js"></script>
+    <script type="text/javascript" src="/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <script type="text/javascript" src="/js/cart.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/history.js"></script>
+<!-- JS Part End-->
+</body>
+</html>

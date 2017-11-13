@@ -1,0 +1,56 @@
+﻿@using MvcApplication20.Models
+@{
+    List<Post> posts = ViewData.Model as List<Post>;
+    List<string> Chars = new List<string>();
+    foreach (var post in posts)
+    {
+        string Char = post.Title.Substring(0, 1);
+        if (!Chars.Contains(Char)) {
+            Chars.Add(Char);
+        }
+    }
+    Chars.Sort();
+    posts.Sort();
+}
+
+<div id="container">
+    <div class="container">
+        <!-- Breadcrumb Start-->
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-home"></i></a></li>
+            <li><a href="/Catalog/Brands">Бренды</a></li>
+        </ul>
+        <!-- Breadcrumb End-->
+        <div class="row">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-12">
+                <h1 class="title">Найдите интересующий вас бренд</h1>
+                <p class="brand-index">
+                    <strong>Перечень:</strong>
+                    @foreach (var Char in Chars)
+                    {
+                        <a href="#@Char">@Char</a>    
+                    }
+                </p>
+
+                <div class="manufacturer-info">
+                    @foreach (var Char in Chars)
+                    {
+                       <h4 id="@Char" class="manufacturer-title">@Char</h4>
+                       <div class="row">
+                           @foreach (var post in posts.Where(t => t.Title.Substring(0,1) == Char)) { 
+                            <div class="col-sm-2 col-xs-6 manufacturer">
+                                <a href="/Catalog/Brand/@post.Id" class="thumbnail">
+                                    @Html.Raw(post.Description)
+                                </a>
+                            </div>
+                           }
+                        </div>
+                    }
+                    
+                </div>
+            </div>
+            <!--Middle Part End -->
+        </div>
+    </div>
+</div>

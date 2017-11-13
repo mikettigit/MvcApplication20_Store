@@ -1,0 +1,101 @@
+﻿@using MvcApplication20.Models
+@{
+    Cart cart = Model as Cart;
+}
+
+<div id="container">
+    <div class="container">
+        <!-- Breadcrumb Start-->
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-home"></i></a></li>
+            <li><a href="/Cart">Корзина</a></li>
+        </ul>
+        <!-- Breadcrumb End-->
+        <div class="row">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-12">
+                <h1 class="title">Корзина</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td class="text-center">Изображение</td>
+                                <td class="text-left">Наименование</td>
+                                <td class="text-left">Количество</td>
+                                <td class="text-right">Цена</td>
+                                <td class="text-right">Стоимость</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var CartItem in cart.items) { 
+                            <tr>
+                                <td class="text-center"><a href="@CartItem.Item.RelativeUrl"><img src="@((CartItem.Item.Pictures.Count > 0) ? CartItem.Item.Pictures.FirstOrDefault().UrlForSized(118,118) : "")" alt="@CartItem.Item.Name" title="@CartItem.Item.Name" class="img-thumbnail" /></a></td>
+                                <td class="text-left">
+                                    <a href="@CartItem.Item.RelativeUrl">@CartItem.Item.Name</a><br />
+                                </td>
+                                <td class="text-left">
+                                    <div class="input-group btn-block quantity">
+                                        <input type="hidden" class="relative_url" value="@CartItem.Item.RelativeUrl" />
+                                        <input type="text" name="quantity" value="@CartItem.Count" size="2" class="form-control item_quatity" />
+                                        <span class="input-group-btn">
+                                            <button type="button" data-toggle="tooltip" title="Обновить" class="btn btn-primary cartitemupdate"><i class="fa fa-refresh"></i></button>
+                                            <button type="button" data-toggle="tooltip" title="Удалить" class="btn btn-danger cartitemdelete"><i class="fa fa-times-circle"></i></button>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="text-right cartitemprice">@CartItem.Item.Price</td>
+                                <td class="text-right cartitemsubtotal">@CartItem.Subtotal.ToString()</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Контактные данные</h4>
+                    </div>
+                    <div id="collapse-shipping" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Все поля обязательны для заполнения</p>
+                            <form class="form-horizontal">
+                                <div class="form-group required">
+                                    <label class="col-sm-2 control-label" for="username">ФИО</label>
+                                    <div class="col-sm-10">
+                                        <input name="username" id="username" class="form-control" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div class="form-group required">
+                                    <label class="col-sm-2 control-label" for="userphone">Телефон</label>
+                                    <div class="col-sm-10">
+                                        <input name="userphone" id="userphone" class="form-control" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div class="form-group required">
+                                    <label class="col-sm-2 control-label" for="useremail">Email</label>
+                                    <div class="col-sm-10">
+                                        <input name="useremail" value="" placeholder="" id="useremail" class="form-control" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-8">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td class="text-right"><strong>Итог:</strong></td>
+                                <td class="text-right" id="total_amount">@cart.Total</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="pull-left"><a href="/" class="btn btn-default">Продолжить покупки</a></div>
+                    <div class="pull-right"><a href="#" class="btn btn-primary SendOrder">Отправить заказ</a></div>
+                </div>
+            </div>
+            <!--Middle Part End -->
+        </div>
+    </div>
+</div>

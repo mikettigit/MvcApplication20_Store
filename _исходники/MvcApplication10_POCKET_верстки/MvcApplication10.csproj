@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{69D07F8F-A86C-47F1-80AD-8007424EC1D5}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcApplication10</RootNamespace>
+    <AssemblyName>MvcApplication10</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\ControllerWrapper.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\PocketController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Extentions.cs" />
+    <Compile Include="Helpers\HtmlBeautifier.cs" />
+    <Compile Include="Helpers\JsonMessage.cs" />
+    <Compile Include="Helpers\ImageResizer.cs" />
+    <Compile Include="Helpers\SessionManager.cs" />
+    <Compile Include="Models\EnhanceModel.cs" />
+    <Compile Include="Models\PocketModel.cs" />
+    <Compile Include="Models\ReplacementModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\404.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\404.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\about-us.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\about-us.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\careers.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\careers.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\cart.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\cart.html\demo.harnishdesign.net_-716652674_1687524277.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\category.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\category.html\demo.harnishdesign.net_-716652674_1313862133.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\checkout.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\checkout.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\compare.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\compare.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\contact-us.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\contact-us.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\font-awesome\css\font-awesome.min_-716652674_585592146.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\owl.carousel.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\owl.carousel_-716652674_792821277.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\owl.transitions.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\owl.transitions_-716652674_324313990.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\responsive.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\responsive_-716652674_285601602.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\stylesheet.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\stylesheet_-716652674_337067344.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\demo.harnishdesign.net_-716652674_296343399.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\elements-forms.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\elements-forms.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\elements.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\elements.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\email-template\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\email-template\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\facebook.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\faq.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\faq.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\gift-voucher.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\gift-voucher.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\google_plus.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\home-icon.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\banner\cms-block.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\banner\responsive.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\banner\sample-banner-1-400x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\banner\sample-banner-2-400x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\banner\sample-banner-3-400x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\banner\sample-banner-4-400x150.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\banner\sample-banner-5-400x150.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\banner\small-banner-265x350.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\banner\small-banner1-265x350.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\bullet-dark.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\favicon.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\flags\ar.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\flags\gb.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\logo.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\no_image.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\no_image_60x60.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\payment\payment_2checkout.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\payment\payment_american.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\payment\payment_discover.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\payment\payment_maestro.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\payment\payment_mastercard.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\payment\payment_paypal.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\plus.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\apple_cinema_30-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\apple_cinema_30-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\apple_logo-100x100.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\apple_logo-60x60.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\canon_eos_5d_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\canon_logo-100x100.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\canon_logo-60x60.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\FinePix-Long-Zoom-Camera-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\FinePix-Long-Zoom-Camera-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\hp_2-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\hp_3-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\hp_logo-60x60.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\htc_logo-60x60.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\iphone_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\iphone_1-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\iphone_6-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\iphone_6-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\ipod_classic_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\ipod_nano_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\ipod_shuffle_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\ipod_touch_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_1-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_2-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_2-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_3-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_3-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_4-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_4-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_5-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_5-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_air_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_air_1-350x350.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_air_1-500x500.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_air_1-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_air_1-66x66.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_air_1-90x90.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_air_2-66x66.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_air_3-66x66.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_air_4-66x66.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_pro_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_pro_1-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\macbook_pro_1-90x90.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\nikon_d300_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\nikon_d300_1-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\nikon_d300_4-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\nikon_d300_4-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\nikon_d300_5-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\nikon_d300_5-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\palm_logo-60x60.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\palm_treo_pro_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\samsung_tab_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\samsung_tab_1-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\samsung_tab_1-90x90.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\sony_logo-60x60.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\sony_vaio_1-200x200.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\product\sony_vaio_1-50x50.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\slider\banner-1.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\slider\banner-2.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\slider\banner-3.jpg" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\socialicons\facebook.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\socialicons\google_plus.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\socialicons\pinterest.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\socialicons\rss.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\image\socialicons\twitter.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\bootstrap\css\bootstrap.min.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\bootstrap\css\bootstrap.min_-716652674_554591362.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\bootstrap\js\bootstrap.min.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\bootstrap\js\bootstrap.min_-716652674_361354989.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\custom.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\custom_-716652674_549198137.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\datetimepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\datetimepicker\bootstrap-datetimepicker.min_-716652674_-1263871703.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\datetimepicker\moment.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\datetimepicker\moment_-716652674_-1286308497.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery-2.1.1.min.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery-2.1.1.min_-716652674_309504968.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery.dcjqaccordion.min.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery.dcjqaccordion.min_-716652674_306115978.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery.easing-1.3.min.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery.easing-1.3.min_-716652674_335103214.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery.elevateZoom-3.0.8.min.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery.elevateZoom-3.0.8.min_-716652674_816755097.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\owl.carousel.min.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\owl.carousel.min_-716652674_790330017.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\swipebox\lib\ios-orientationchange-fix.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\swipebox\lib\ios-orientationchange-fix_-716652674_860144726.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\swipebox\src\css\swipebox.min.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\swipebox\src\css\swipebox.min_-716652674_1067593724.css" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\swipebox\src\js\jquery.swipebox.min.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\swipebox\src\js\jquery.swipebox.min_-716652674_825354022.js" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\login.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\login.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\logo.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\manufacturer.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\manufacturer.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\my-account.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\my-account.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\order-history.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\order-history.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\order-information.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\order-information.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\phone-icon.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\pinterest.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\product.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\product.html\demo.harnishdesign.net_-716652674_1071160260.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\register.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\register.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\return.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\return.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\search.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\search.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\sitemap.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\sitemap.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\twitter.png" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\wishlist.html\demo.harnishdesign.net.htm" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\wishlist.html\demo.harnishdesign.net_-716652674.htm" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery_pocket.js" />
+    <Content Include="Scripts\_admin.js" />
+    <Content Include="Scripts\_post.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sheets\_1_main.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Controls\Default.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\demo.harnishdesign.net.config" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\404.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\about-us.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\careers.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\cart.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\category.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\checkout.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\compare.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\contact-us.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\font-awesome\css\font-awesome.min.css.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\owl.carousel.css.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\owl.transitions.css.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\responsive.css.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\css\stylesheet.css.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\elements-forms.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\elements.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\email-template\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\faq.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\gift-voucher.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\bootstrap\css\bootstrap.min.css.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\bootstrap\js\bootstrap.min.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\custom.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\datetimepicker\bootstrap-datetimepicker.min.css.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\datetimepicker\bootstrap-datetimepicker.min.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\datetimepicker\moment.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery-2.1.1.min.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery.dcjqaccordion.min.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery.easing-1.3.min.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\jquery.elevateZoom-3.0.8.min.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\owl.carousel.min.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\swipebox\lib\ios-orientationchange-fix.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\swipebox\src\css\swipebox.min.css.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\js\swipebox\src\js\jquery.swipebox.min.js.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\login.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\manufacturer.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\my-account.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\order-history.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\order-information.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\product.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\register.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\return.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\search.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\sitemap.html\demo.harnishdesign.net.htm.original" />
+    <Content Include="App_Data\Pocket\demo.harnishdesign.net\html\marketshop\v1\wishlist.html\demo.harnishdesign.net.htm.original" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>31776</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:31776/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

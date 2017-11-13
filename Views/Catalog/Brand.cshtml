@@ -1,0 +1,22 @@
+﻿@using MvcApplication20.Models
+@{
+    Post post = ViewData.Model as Post;
+}
+
+<div id="container">
+    <div class="container">
+        <!-- Breadcrumb Start-->
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-home"></i></a></li>
+            <li><a href="/Catalog/Brands">Бренды</a></li>
+        </ul>
+        <!-- Breadcrumb End-->
+        <div class="row">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-12">
+                @Html.Raw(post.Content)
+            </div>
+            <!--Middle Part End -->
+        </div>
+    </div>
+</div>

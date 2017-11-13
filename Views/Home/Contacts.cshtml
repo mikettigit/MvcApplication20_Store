@@ -1,0 +1,100 @@
+﻿@using MvcApplication20.Models
+
+@{
+    DataModel Dm = Model as DataModel;
+}
+
+<div id="container">
+    <div class="container">
+        <!-- Breadcrumb Start-->
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-home"></i></a></li>
+            <li><a href="/Home/Contacts">Контакты</a></li>
+        </ul>
+        <!-- Breadcrumb End-->
+        <div class="row">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-9">
+                @*<h1 class="title">Вы можете связаться с нами</h1>
+                <h3 class="subtitle">Наши контакты</h3>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="contact-info">
+                            <div class="contact-info-icon"><i class="fa fa-map-marker"></i></div>
+                            <div class="contact-detail">
+                                <h4>Адрес</h4>
+                                <address>
+                                    @CommonHtmlHelpers.Address()
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="contact-info">
+                            <div class="contact-info-icon"><i class="fa fa-phone"></i></div>
+                            <div class="contact-detail">
+                                <h4>Телефон</h4>
+                                @CommonHtmlHelpers.Phone()
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="contact-info">
+                            <div class="contact-info-icon"><i class="fa fa-clock-o"></i></div>
+                            <div class="contact-detail">
+                                <h4>Время работы</h4>
+                                пн-пт 8:00 - 20:00, cб 9:00 - 16:00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin:10px 10px 20px 10px;">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A71ca4fc675848e764c7ec6f375f50cb20f9b07c4daca37c5441f7d4a6bfb3c17&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>*@
+                @{
+                    string Content = Dm.GetItem("27").Content;
+                    string Address = CommonHtmlHelpers.Address().ToHtmlString();
+                    Content = Content.Replace("@CommonHtmlHelpers.Address()", Address);
+                    string Phone = @CommonHtmlHelpers.Phone().ToHtmlString();
+                    Content = Content.Replace("@CommonHtmlHelpers.Phone()", Phone);   
+                }
+                @Html.Raw(Content)
+                <form class="form-horizontal" style="margin-top:10px;">
+                    <fieldset>
+                        <h3 class="subtitle">Отправьте нам сообщение</h3>
+                        <div class="form-group required">
+                            <label class="col-md-2 col-sm-3 control-label" for="input-name">Наше имя</label>
+                            <div class="col-md-10 col-sm-9">
+                                <input type="text" name="name" value="" id="input-name" placeholder="Ваше имя" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label class="col-md-2 col-sm-3 control-label" for="input-email">E-Mail</label>
+                            <div class="col-md-10 col-sm-9">
+                                <input type="text" name="email" value="" id="input-email" placeholder="E-Mail" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label class="col-md-2 col-sm-3 control-label" for="input-enquiry">Сообщение</label>
+                            <div class="col-md-10 col-sm-9">
+                                <textarea name="enquiry" rows="10" id="input-enquiry" placeholder="Ваше сообщение" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="buttons">
+                        <div class="pull-right">
+                            <input class="btn btn-primary" type="submit" value="Отправить" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <aside id="column-right" class="col-sm-3 hidden-xs">
+                <div class="list-group">
+                   @Html.Raw(Dm.GetItem("21").Content)
+                </div>
+                @Html.Partial("PartialLeftBanners")
+            </aside>
+            <!--Middle Part End -->
+        </div>
+    </div>
+</div>

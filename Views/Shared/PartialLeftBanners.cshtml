@@ -1,0 +1,6 @@
+﻿@using MvcApplication20.Models
+@{
+    DataModel Dm = new DataModel();
+    
+    @Html.Raw(Dm.GetItem("25").Content)
+}

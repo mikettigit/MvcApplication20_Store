@@ -1,0 +1,17 @@
+﻿@using System.Web.Mvc
+@using System.Configuration
+
+@helper Phone()
+{
+    @ConfigurationManager.AppSettings["Phone"];
+}
+
+@helper Email()
+{
+    @ConfigurationManager.AppSettings["Email"];
+}
+
+@helper Address()
+{
+    @ConfigurationManager.AppSettings["Address"];
+}

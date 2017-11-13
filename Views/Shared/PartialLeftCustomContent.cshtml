@@ -1,0 +1,22 @@
+﻿@using MvcApplication20.Models
+@{
+    DataModel Dm = new DataModel();
+
+    string subtitle = "";
+    string content = "";
+    if (Model is MvcApplication20.Models.Category) {
+        subtitle = "";
+        content = (Model as MvcApplication20.Models.Category).Description;
+        <div class="list-group">
+            <h3 class="subtitle">@Html.Raw(subtitle)</h3>
+            <p>@Html.Raw(content)</p>
+        </div>
+    }
+    else
+    {
+       <div class="list-group">
+            @Html.Raw(Dm.GetItem("23").Content)
+        </div> 
+    }
+}
+

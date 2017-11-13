@@ -1,0 +1,121 @@
+﻿@{
+    MvcApplication20.Models.Category category = ViewData.Model as MvcApplication20.Models.Category;
+}
+
+<div id="container">
+    <!-- Feature Box Start-->
+    <div class="container">
+        <div class="custom-feature-box row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="feature-box fbox_1">
+                    <div class="title">Бесплатная доставка</div>
+                    <p>Бесплатная доставка от 10000 руб.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="feature-box fbox_2">
+                    <div class="title">Бесплатный возврат</div>
+                    <p>Бесплатный возврат в течение 3 дней</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="feature-box fbox_3">
+                    <div class="title">Скидочные карты</div>
+                    <p>Специальные цены по скидочным картам</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="feature-box fbox_4">
+                    <div class="title">Точки выдачи</div>
+                    <p>Удобные точки выдачи</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Box End-->
+    <div class="container">
+        <div class="row">
+            <!-- Left Part Start-->
+            <aside id="column-left" class="col-sm-3 hidden-xs">
+                @Html.Partial("PartialLeftCategories", category)
+                @Html.Partial("PartialLeftCustomContent", category)
+                @Html.Partial("PartialLeftBanners")
+                @Html.Partial("PartialLeftLatest")
+            </aside>
+            <!-- Left Part End-->
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-9">
+                <h1 class="title">@category.Name</h1>
+                @if (category.Children.Count > 0) { 
+                    <h3 class="subtitle">Вложенные</h3>
+                    <div class="category-list-thumb row">
+                        @foreach (var ChildCategory in category.Children) { 
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                <a href="@ChildCategory.RelativeUrl">
+                                    <img src="@((ChildCategory.Pictures.Count > 0) ? ChildCategory.Pictures.FirstOrDefault().UrlForSized(108, 108) : "")" alt="@ChildCategory.Name" />
+                                </a> 
+                                <a href="@ChildCategory.RelativeUrl">@ChildCategory.Name</a> 
+                            </div>
+                        }
+                    </div>
+                }
+                @if (category.Items.Count > 0) {
+                    <div class="product-filter">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-5">
+                                <div class="btn-group">
+                                    <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
+                                    <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
+                                </div>
+                            </div>
+                            @*<div class="col-sm-2 text-right">
+                                <label class="control-label" for="input-sort">Sort By:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-2 text-right">
+                                <select id="input-sort" class="form-control col-sm-3">
+                                    <option value="" selected="selected">Default</option>
+                                    <option value="">Name (A - Z)</option>
+                                    <option value="">Name (Z - A)</option>
+                                    <option value="">Price (Low &gt; High)</option>
+                                    <option value="">Price (High &gt; Low)</option>
+                                    <option value="">Rating (Highest)</option>
+                                    <option value="">Rating (Lowest)</option>
+                                    <option value="">Model (A - Z)</option>
+                                    <option value="">Model (Z - A)</option>
+                                </select>
+                            </div>*@
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row products-category">
+                        @foreach (var item in category.Items)
+                        {
+                            <div class="product-layout product-list col-xs-12">
+                                <div class="product-thumb">
+                                    <div class="image"><a href="@item.RelativeUrl"><img src="@((item.Pictures.Count > 0) ? item.Pictures.FirstOrDefault().UrlForSized(200, 200) : "")" alt="@item.Name" title="@item.Name" class="img-responsive" /></a></div>
+                                    <div>
+                                        <div class="caption">
+                                            <h4><a href="@item.RelativeUrl">@item.Name</a></h4>
+                                            <p class="description">
+                                                @Html.Raw(item.Description)
+                                            </p>
+                                            <p class="price">
+                                                <span class="price-new">@item.Price руб.</span>
+                                                @*<span class="price-old">$1,900.00</span>*@
+                                                @*<span class="saving">-26%</span>*@
+                                            </p>
+                                        </div>
+                                        <div class="button-group">
+                                            <a class="btn-primary" type="button" href="@item.RelativeUrl" onclick=""><span>Купить</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+            <!--Middle Part End-->
+        </div>
+    </div>
+</div>

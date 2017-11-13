@@ -1,0 +1,120 @@
+﻿@using MvcApplication20.Models
+
+@{
+    DataModel Dm = Model as DataModel;
+}
+
+<div id="container">
+    <div class="container">
+        <!-- Breadcrumb Start-->
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-home"></i></a></li>
+            <li><a href="/Home/Index">О нас</a></li>
+        </ul>
+        <!-- Breadcrumb End-->
+        <div class="row">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-12">
+                @*<h1 class="title">О нас</h1>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, laoreet sit amet, nunc. Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui. Morbi id tellus. Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Maecenas eu enim in lorem scelerisque auctor. Ut non erat.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, laoreet sit amet, nunc. Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui. Morbi id tellus. Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Maecenas eu enim in lorem scelerisque auctor. Ut non erat. Suspendisse fermentum posuere lectus. Fusce vulputate nibh egestas orci. Aliquam lectus. Morbi eget dolor ullamcorper massa pellentesque sagittis. Morbi sit amet quam sed felis. Quisque vest ibulum massa. Nulla ornare. Nulla libero. Donec et mi eu massa ultrices scelerisque. Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem. </p>
+                        <blockquote>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui. Morbi id tellus. Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu. </p>
+                            <footer>сказал наш директор</footer>
+                        </blockquote>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, laoreet sit amet, nunc. Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui. Morbi id tellus. Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Maecenas eu enim in lorem scelerisque auctor. Morbi sit amet quam sed felis. Quisque vest ibulum massa. Nulla ornare. Nulla libero. Donec et mi eu massa ultrices scelerisque. Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem.</p>
+                    </div>
+                </div>*@
+                @Html.Raw(Dm.GetItem("15").Content)
+
+                @*<h2 class="text-center">Наши преимущества</h2>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="feature-box">
+                            <i class="feature-icon fa fa-user"></i>
+                            <div class="feature-content">
+                                <h4>Бесплатная доставка</h4>
+                                <p>Lorem ipsum dolor sit amet, con sectetuer adipiscing elit. Donec eros tellus, scelerisqu nec, rhonc us eget, sollicitudin eu.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="feature-box">
+                            <i class="feature-icon fa fa-book"></i>
+                            <div class="feature-content">
+                                <h4>Скидочные карты</h4>
+                                <p>Lorem ipsum dolor sit amet, con sectetuer adipiscing elit. Donec eros tellus, scelerisqu nec, rhonc us eget, sollicitudin eu.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="feature-box">
+                            <i class="feature-icon fa fa-trophy"></i>
+                            <div class="feature-content">
+                                <h4>Лучший сервис</h4>
+                                <p>Lorem ipsum dolor sit amet, con sectetuer adipiscing elit. Donec eros tellus, scelerisqu nec, rhonc us eget, sollicitudin eu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                @Html.Raw(Dm.GetItem("17").Content)
+                @*<h2 class="text-center">Наша история</h2>
+                <p class="lead text-center">основные события и достижения.</p>
+                <div class="infographic">
+                    <div class="infographic-inner">
+                        <div class="infographic-box pull-left flip">
+                            <div class="infographic-year">2017</div>
+                            <div class="infographic-box-inner">
+                                <h4>Запуск сайта electrocomponents-shop.ru</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-box pull-right flip red">
+                            <div class="infographic-year">2016</div>
+                            <div class="infographic-box-inner pull-right flip">
+                                <h4>Веха</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui.</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="infographic-box pull-left flip orange">
+                            <div class="infographic-year">2015</div>
+                            <div class="infographic-box-inner">
+                                <h4>Веха</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-box pull-right flip dark-blue">
+                            <div class="infographic-year">2014</div>
+                            <div class="infographic-box-inner pull-right flip">
+                                <h4>Веха</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui.</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="infographic-box pull-left flip red">
+                            <div class="infographic-year">2013</div>
+                            <div class="infographic-box-inner">
+                                <h4>Веха</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-box pull-right flip">
+                            <div class="infographic-year">2012</div>
+                            <div class="infographic-box-inner pull-right flip">
+                                <h4>Веха</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui.</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>*@
+                @Html.Raw(Dm.GetItem("19").Content)
+            </div>
+            <!--Middle Part End -->
+        </div>
+    </div>
+</div>
