@@ -50,3 +50,5 @@ Temporary Items
 obj/
 bin/
 App_Data/
+catalog/
+images/
