@@ -23,6 +23,9 @@
 <body>
     <div class="wrapper-wide">
         <div id="header">
+            <!-- Top Bar Start-->
+            @Html.Partial("TopBar")
+            <!-- Top Bar End-->
             <!-- Header Start-->
             <header class="header-row">
                 <div class="container">
@@ -61,7 +64,7 @@
                         <ul class="nav navbar-nav">
                             <li><a class="home_link" title="Home" href="/Home/Index"><span>Home</span></a></li>
                             <li><a href="/Home/Index"><span>О нас</span></a></li>
-                            <li><a href="/"><span>Каталог</span></a></li>
+                            <li><a href="/Catalog/Index"><span>Каталог</span></a></li>
                             <li><a href="/Catalog/Brands"><span>Бренды</span></a></li>
                             <li class="contact-link"><a href="/Home/Contacts">Контакты</a></li>
                             <li class="custom-link-right">
@@ -147,6 +150,7 @@
     <script type="text/javascript" src="/js/jquery.dcjqaccordion.min.js"></script>
     <script type="text/javascript" src="/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="/js/custom.js"></script>
+    <script type="text/javascript" src="/js/account.js"></script>
     <script type="text/javascript" src="/js/cart.js"></script>
     <script type="text/javascript" src="/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="/js/history.js"></script>

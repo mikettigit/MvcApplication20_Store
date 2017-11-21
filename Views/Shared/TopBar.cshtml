@@ -1,0 +1,25 @@
+﻿@using MvcApplication20.Models
+@{
+    Account Account = ViewBag.Account;
+}
+
+<nav id="top" class="htop">
+    <div class="container">
+        <div class="row">
+            <div id="top-links" class="nav pull-right flip">
+                <ul>
+                    @if (Account.IsAuthorized)
+                    {
+                        <li><a href="#" style="text-transform:none;">@Account.UserLogin</a></li>
+                        <li><a href="#" id="LogoutButton">Выйти</a></li>
+                    }
+                    else 
+                    { 
+                        <li><a href="/Account/Register">Регистрация</a></li>
+                        <li><a href="/Account/Login">Войти</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

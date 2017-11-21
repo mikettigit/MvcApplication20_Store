@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\ControllerWrapper.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Helpers\ImageResizer.cs" />
     <Compile Include="Helpers\JsonMessage.cs" />
     <Compile Include="Helpers\SessionManager.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Data\PostList.cs" />
     <Compile Include="Models\Data\DataModel.cs" />
@@ -249,6 +251,7 @@
     <Content Include="js\bootstrap\css\bootstrap.min.css" />
     <Content Include="js\bootstrap\js\bootstrap.min.js" />
     <Content Include="js\bootstrap\js\bootstrap.min_-716652674_382100040.js" />
+    <Content Include="js\account.js" />
     <Content Include="js\history.js" />
     <Content Include="js\cart.js" />
     <Content Include="js\custom.js" />
@@ -257,6 +260,9 @@
     <Content Include="js\jquery.dcjqaccordion.min.js" />
     <Content Include="js\jquery.easing-1.3.min.js" />
     <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\swipebox\lib\ios-orientationchange-fix.js" />
+    <Content Include="js\swipebox\src\css\swipebox.min.css" />
+    <Content Include="js\swipebox\src\js\jquery.swipebox.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -292,6 +298,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Cart\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\TopBar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

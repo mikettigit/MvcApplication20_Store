@@ -1,0 +1,85 @@
+﻿<div id="container">
+    <div class="container">
+        <!-- Breadcrumb Start-->
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-home"></i></a></li>
+            <li><a href="/Account/Login">Войти</a></li>
+            <li><a href="/Account/Register">Регистрация</a></li>
+        </ul>
+        <!-- Breadcrumb End-->
+        <div class="row">
+            <!--Middle Part Start-->
+            <div class="col-sm-9" id="content">
+                <h1 class="title">Регистрация</h1>
+                <p>Если вы уже зарегистрированы перейдите на <a href="/Account/Login">страницу входа</a>.</p>
+                <form class="form-horizontal">
+                    <fieldset id="account">
+                        <legend>Персональные данные</legend>
+                        <div style="display: none;" class="form-group required">
+                            <label class="col-sm-2 control-label">Customer Group</label>
+                            <div class="col-sm-10">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" checked="checked" value="1" name="customer_group_id">
+                                        Default
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="Name" class="col-sm-2 control-label">Имя</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Name" placeholder="Имя" value="" name="Name">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="Email" class="col-sm-2 control-label">E-Mail</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="Email" placeholder="E-Mail" value="" name="email">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Пароль</legend>
+                        <div class="form-group required">
+                            <label for="Password" class="col-sm-2 control-label">Пароль (минимум 6 знаков)</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="Password" placeholder="Пароль" value="" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="PasswordConfirm" class="col-sm-2 control-label">Пароль еще раз</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="PasswordConfirm" placeholder="Пароль" value="" name="confirm">
+                            </div>
+                        </div>
+                    </fieldset>
+                    @*<fieldset>
+                        <legend>Newsletter</legend>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Subscribe</label>
+                            <div class="col-sm-10">
+                                <label class="radio-inline">
+                                    <input type="radio" value="1" name="newsletter">
+                                    Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" checked="checked" value="0" name="newsletter">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>*@
+                    <div class="buttons">
+                        <div class="pull-right">
+                            @*<input type="checkbox" value="1" name="agree">
+                            &nbsp;I have read and agree to the <a class="agree" href="#"><b>Privacy Policy</b></a> &nbsp;*@
+                            <input type="button" class="btn btn-primary" id="RegisterButton" value="Продолжить">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--Middle Part End -->
+        </div>
+    </div>
+</div>

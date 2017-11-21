@@ -12,10 +12,6 @@ namespace MvcApplication20.Controllers
         //
         // GET: /Index/
 
-        private DataModel dataModel;
-
-        protected DataModel Dm { get { return dataModel ?? (dataModel = new DataModel()); } }
-
 
         public ActionResult Index()
         {

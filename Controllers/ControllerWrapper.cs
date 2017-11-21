@@ -10,6 +10,29 @@ namespace MvcApplication20.Controllers
 {
     public class ControllerWrapper : Controller
     {
+        protected Account Account
+        {
+            get
+            {
+                Account result = null;
+
+                SessionManager sm = new SessionManager();
+
+                object account = sm.Get("Account");
+                if (account != null)
+                {
+                    result = account as Account;
+                }
+                else
+                {
+                    result = new Account();
+                    sm.Set("Account", result);
+                }
+
+                return result;
+            }
+        }
+
         protected Cart Cart
         {
             get
@@ -53,6 +76,22 @@ namespace MvcApplication20.Controllers
                 }
 
                 return result;
+            }
+        }
+
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            ViewBag.Account = Account;
+
+            string actionName = filterContext.ActionDescriptor.ActionName;
+            string controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
+
+            if (!Account.IsAuthorized)
+            {
+                if (controllerName == "Catalog")
+                {
+                    filterContext.Result = RedirectToAction("Login", "Account");
+                }
             }
         }
 
