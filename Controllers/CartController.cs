@@ -1,9 +1,9 @@
-﻿using MvcApplication10.Helpers;
+﻿using MvcApplication20.Helpers;
+using MvcApplication20.Helpers;
 using MvcApplication20.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MvcApplication20.Controllers
@@ -120,17 +120,37 @@ namespace MvcApplication20.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult SendOrder(FormCollection collection)
         {
+            JsonMessage jm = new JsonMessage();
+
             string order = "";
             foreach (var item in Cart.items)
             {
                 order += item.Item.Description + " (" + item.Comment + "): " + item.Count.ToString() + "\r\n";
             }
 
-            collection.Add("2fea14ff-d8e3-42c1-a230-3917b7a640c9", "2fea14ff-d8e3-42c1-a230-3917b7a640c9");
-            collection.Add("order", order);
+            try
+            {
+                string name = collection["name"];
+                string phone = collection["phone"];
+                string email = collection["email"];
+                string body = "Имя: " + name + "\n";
+                body += "Телефон: " + phone + "\n";
+                body += "Email: " + email + "\n" + "\n";
+                body += "Заказ: " + order;
+                string subject = "Заказ c сайта";
 
-            SenderController sc = new SenderController();
-            return sc.Send(collection);
+                MailSender.Send(subject, body);
+
+                jm.Result = true;
+                jm.Message = "Мы получили Ваш запрос и скоро свяжемся с Вами...";
+            }
+            catch (Exception e)
+            {
+                jm.Result = true;
+                jm.Message = "Во время отправки произошла ошибка - " + e.ToString();
+            }
+
+            return Json(jm);
         }
 
         public ActionResult Index()

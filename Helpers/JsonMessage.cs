@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MvcApplication10.Helpers
+namespace MvcApplication20.Helpers
 {
     public class JsonMessage
     {

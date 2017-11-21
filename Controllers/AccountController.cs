@@ -1,10 +1,8 @@
-﻿using MvcApplication10.Helpers;
+﻿using MvcApplication20.Helpers;
+using MvcApplication20.Helpers;
 using MvcApplication20.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MvcApplication20.Controllers
@@ -31,6 +29,8 @@ namespace MvcApplication20.Controllers
             try
             {
                 string Login = collection["Email"];
+                string UserName = collection["UserName"];
+                string Password = collection["Password"];
                 char[] charInvalidFileChars = Path.GetInvalidFileNameChars();
                 foreach (char charInvalid in charInvalidFileChars)
                 {
@@ -46,8 +46,13 @@ namespace MvcApplication20.Controllers
                 else
                 {
                     DirectoryInfo UserDirectoryInfo = Directory.CreateDirectory(UserPath);
-                    System.IO.File.AppendAllText(UserPath + "/" + collection["UserName"] + ".txt", "");
-                    System.IO.File.AppendAllText(UserPath + "/" + collection["Password"].GetHashCode() + ".hash", "");
+                    System.IO.File.AppendAllText(UserPath + "/" + UserName + ".txt", "");
+                    System.IO.File.AppendAllText(UserPath + "/" + Password.GetHashCode() + ".hash", "");
+
+                    string subject = "Регистрация нового пользователя";
+                    string body = "Логин: " + Login;
+
+                    MailSender.Send(subject, body);
 
                     jm.Message = "Заявка отправлена. Ожидайте ответа нашего сотрудника по указанным вами данным для обратной связи";
                     jm.Result = true;

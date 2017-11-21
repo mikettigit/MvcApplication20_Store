@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -27,52 +28,6 @@ namespace MvcApplication20.Models
             BaseCategoryUrl = "/Catalog/Category";
             BaseItemUrl = "/Catalog/Item";
             BaseImageUrl = "/Images";
-        }
-    }
-
-    public class Picture
-    {
-        private string RelativeUrl;
-        private string Path;
-
-        public string UrlForSized(Int32 width, Int32 height)
-        { 
-            string prefix = width.ToString() + "x" + height.ToString();
-            string dirpath = System.IO.Path.GetDirectoryName(Path) + "\\" + System.IO.Path.GetFileName(Path);
-            dirpath = dirpath.Replace(CatalogParams.BasePath, CatalogParams.BaseImagePath);
-            if (!Directory.Exists(dirpath))
-            {
-                Directory.CreateDirectory(dirpath);
-            }
-            string NewPath = dirpath + "\\" + prefix + System.IO.Path.GetExtension(Path);
-            if (!File.Exists(NewPath))
-            {
-                MvcApplication10.Helpers.ImageResizer.Proceed(Path, NewPath, width, height);
-            }
-
-            return RelativeUrl + "/" + System.IO.Path.GetFileName(dirpath) + "/" + prefix + System.IO.Path.GetExtension(Path);
-        }
-
-        public Picture(string _relativeUrl, string _path)
-        {
-            RelativeUrl = _relativeUrl;
-
-            Path = _path;
-            string Filename = System.IO.Path.GetFileNameWithoutExtension(Path);
-            if (Filename.Length > 10)
-            {
-                int i = 1;
-                string FileNameWithoutExt = System.IO.Path.GetDirectoryName(Path) + "\\" + Filename.Substring(0, 5) + "_";
-                string FileExt = System.IO.Path.GetExtension(Path);
-                var newfilename = FileNameWithoutExt + i.ToString() + FileExt;
-                while (File.Exists(newfilename))
-                {
-                    i++;
-                    newfilename = FileNameWithoutExt + i.ToString() + FileExt; 
-                }
-                File.Move(_path, newfilename);
-                Path = newfilename;
-            }
         }
     }
 
@@ -193,4 +148,85 @@ namespace MvcApplication20.Models
         }
         
     }
+
+    public class Item : CatalogItem
+    {
+        public string Price;
+        public decimal PriceDouble
+        {
+            get
+            {
+                return String.IsNullOrWhiteSpace(Price) ? 0 : Convert.ToDecimal(Regex.Match(Price, @"[\d,\,]+").Value);
+            }
+        }
+
+        public List<Category> Parents
+        {
+            get
+            {
+                List<Category> result = new List<Category>();
+                CatalogItem CurrentParent = this;
+                do
+                {
+                    DirectoryInfo ParentDirectoryInfo = System.IO.Directory.GetParent(CurrentParent.Path);
+                    CurrentParent = new Category(CatalogParams.QueryByPath(ParentDirectoryInfo.FullName));
+                    result.Add((Category)CurrentParent);
+                } while (!((Category)CurrentParent).isRoot);
+                return result;
+            }
+        }
+
+        public Item(string _query)
+            : base()
+        {
+            RelativeUrl = CatalogParams.BaseItemUrl + "/" + _query.Replace(".item", "");
+            string RelativeImageUrl = CatalogParams.BaseImageUrl + "/" + _query;
+            string RelativePath = _query.Replace("/", "\\");
+            Path = CatalogParams.BasePath + "\\" + RelativePath;
+
+            Id = _query;
+
+            string[] PathParts = RelativePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+            Name = PathParts[PathParts.Length - 1];
+
+            Price = "";
+
+            if (Directory.Exists(Path))
+            {
+                //1
+                var descrSearchPattern = new System.Text.RegularExpressions.Regex(@"$(?<=\.(txt))", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                var descrfilenames = Directory.GetFiles(Path).Where(f => descrSearchPattern.IsMatch(f)).OrderBy(f => f);
+                if (descrfilenames.Count() > 0)
+                {
+                    var descrfilename = descrfilenames.First();
+                    Name = System.IO.Path.GetFileNameWithoutExtension(descrfilename);
+                    Description = System.IO.File.ReadAllText(descrfilename).Replace("\n", "<br/>").Replace(" ", "&#32;").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
+                }
+
+                //2
+                var picturesSearchPattern = new System.Text.RegularExpressions.Regex(@"$(?<=\.(jpg|png|jpeg|gif))", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                var picturenames = Directory.GetFiles(Path).Where(f => picturesSearchPattern.IsMatch(f)).OrderBy(f => f).ToList();
+                if (picturenames.Count() > 0)
+                {
+                    for (var i = 0; i < picturenames.Count(); i++)
+                    {
+                        Pictures.Add(new Picture(RelativeImageUrl, picturenames[i]));
+                    }
+                }
+
+                //3
+                var priceSearchPattern = new Regex(@"$(?<=\.(price))", RegexOptions.IgnoreCase);
+                var pricenames = Directory.GetFiles(Path).Where(f => priceSearchPattern.IsMatch(f)).OrderBy(f => f);
+                if (pricenames.Count() > 0)
+                {
+                    Price = System.IO.Path.GetFileNameWithoutExtension(pricenames.First());
+                }
+
+            }
+
+        }
+
+    }
+
 }

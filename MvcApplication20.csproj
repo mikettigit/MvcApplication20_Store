@@ -135,20 +135,20 @@
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\ControllerWrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SenderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MailSender.cs" />
     <Compile Include="Helpers\ImageResizer.cs" />
     <Compile Include="Helpers\JsonMessage.cs" />
     <Compile Include="Helpers\SessionManager.cs" />
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Catalog.cs" />
     <Compile Include="Models\Data\PostList.cs" />
     <Compile Include="Models\Data\DataModel.cs" />
     <Compile Include="Models\Data\Post.cs" />
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

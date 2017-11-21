@@ -5,7 +5,7 @@ using System.Web;
 using System.Threading;
 using System.Web.SessionState;
 
-namespace MvcApplication10.Helpers
+namespace MvcApplication20.Helpers
 {
     public class SessionManager
     {
