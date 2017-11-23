@@ -50,7 +50,8 @@ namespace MvcApplication20.Controllers
                     System.IO.File.AppendAllText(NotApprovedUserPath + "/" + Password.GetHashCode() + ".hash", "");
 
                     string subject = "Регистрация нового пользователя";
-                    string body = "Логин: " + Login;
+                    string body = "Логин: " + Login + "\n";
+                    body += "Переместите папку '" + Login + "' из '/Users/NotApproved' в '/Users', чтобы одобрить пользователя";
 
                     MailSender.Send(subject, body);
 
