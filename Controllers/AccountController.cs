@@ -1,5 +1,4 @@
 ﻿using MvcApplication20.Helpers;
-using MvcApplication20.Helpers;
 using MvcApplication20.Models;
 using System;
 using System.IO;
@@ -38,16 +37,17 @@ namespace MvcApplication20.Controllers
                 }
 
                 string UserPath = Server.MapPath("/Users/" + Login);
-                if (Directory.Exists(UserPath))
+                string NotApprovedUserPath = Server.MapPath("/Users/NotApproved/" + Login);
+                if (Directory.Exists(UserPath) || Directory.Exists(NotApprovedUserPath))
                 {
                     jm.Message = "Логин (email) занят";
                     jm.Result = false;
                 }
                 else
                 {
-                    DirectoryInfo UserDirectoryInfo = Directory.CreateDirectory(UserPath);
-                    System.IO.File.AppendAllText(UserPath + "/" + UserName + ".txt", "");
-                    System.IO.File.AppendAllText(UserPath + "/" + Password.GetHashCode() + ".hash", "");
+                    DirectoryInfo UserDirectoryInfo = Directory.CreateDirectory(NotApprovedUserPath);
+                    System.IO.File.AppendAllText(NotApprovedUserPath + "/" + UserName + ".txt", "");
+                    System.IO.File.AppendAllText(NotApprovedUserPath + "/" + Password.GetHashCode() + ".hash", "");
 
                     string subject = "Регистрация нового пользователя";
                     string body = "Логин: " + Login;
@@ -82,7 +82,7 @@ namespace MvcApplication20.Controllers
                 string UserPath = Server.MapPath("/Users/" + Login);
                 if (!Directory.Exists(UserPath))
                 {
-                    jm.Message = "Пользователь с таким логином не найден";
+                    jm.Message = "Пользователь с таким логином не найден или еще не одобрен модератором";
                     jm.Result = false;
                 }
                 else
@@ -94,17 +94,9 @@ namespace MvcApplication20.Controllers
                     }
                     else
                     {
-                        if (!System.IO.File.Exists(UserPath + "/approved"))
-                        {
-                            jm.Message = "Пользователь еще не одобрен модератором";
-                            jm.Result = false;
-                        }
-                        else
-                        {
-                            Account.UserLogin = Login;
-                            Account.UserEmail = Login;
-                            jm.Result = true;
-                        }
+                        Account.UserLogin = Login;
+                        Account.UserEmail = Login;
+                        jm.Result = true;
                     }
                 }
             }
