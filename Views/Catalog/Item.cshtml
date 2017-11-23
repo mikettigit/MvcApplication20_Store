@@ -20,7 +20,7 @@
                     <h1 class="title" itemprop="name">@item.Name</h1>
                     <div class="row product-info">
                         <div class="col-sm-6">
-                            <div class="image"><img class="img-responsive" itemprop="image" id="zoom_01" src="@((item.Pictures.Count > 0) ? item.Pictures.FirstOrDefault().UrlForSized(350, 350) : "")" title="@item.Name" alt="@item.Name" data-zoom-image="@item.Pictures.FirstOrDefault().UrlForSized(500, 500)" /> </div>
+                            <div class="image"><img class="img-responsive" itemprop="image" id="zoom_01" src="@item.Icon.UrlForSized(350, 350)" title="@item.Name" alt="@item.Name" data-zoom-image="@item.Icon.UrlForSized(500, 500)" /> </div>
                             <div class="center-block text-center"><span class="zoom-gallery"><i class="fa fa-search"></i> выберите изображение</span></div>
                             <div class="image-additional" id="gallery_01">
                                 @foreach (var Picture in item.Pictures)
@@ -84,7 +84,7 @@
                     <div class="tab-content">
                         <div itemprop="description" id="tab-description" class="tab-pane active">
                             <div>
-                                @Html.Raw(item.Description);
+                                @Html.Raw(item.Description)
                             </div>
                         </div>
                         
@@ -106,7 +106,7 @@
 <div class="LastItemTemplate" style="display:none;" relativeurl="@item.RelativeUrl">
     <div class="side-item">
         <div class="product-thumb clearfix">
-            <div class="image"><a href="@item.RelativeUrl"><img src="@((item.Pictures.Count > 0) ? item.Pictures.FirstOrDefault().UrlForSized(50, 50) : "")" alt="@item.Name" title="@item.Name" class="img-responsive" /></a></div>
+            <div class="image"><a href="@item.RelativeUrl"><img src="@item.Icon.UrlForSized(50, 50)" alt="@item.Name" title="@item.Name" class="img-responsive" /></a></div>
             <div class="caption">
                 <h4><a href="@item.RelativeUrl">@item.Name</a></h4>
                 <p class="price">@item.Price руб.</p>

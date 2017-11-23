@@ -29,7 +29,7 @@
                         <tbody>
                             @foreach (var CartItem in cart.items) { 
                             <tr>
-                                <td class="text-center"><a href="@CartItem.Item.RelativeUrl"><img src="@((CartItem.Item.Pictures.Count > 0) ? CartItem.Item.Pictures.FirstOrDefault().UrlForSized(118,118) : "")" alt="@CartItem.Item.Name" title="@CartItem.Item.Name" class="img-thumbnail" /></a></td>
+                                <td class="text-center"><a href="@CartItem.Item.RelativeUrl"><img src="@CartItem.Item.Icon.UrlForSized(118, 118)" alt="@CartItem.Item.Name" title="@CartItem.Item.Name" class="img-thumbnail" /></a></td>
                                 <td class="text-left">
                                     <a href="@CartItem.Item.RelativeUrl">@CartItem.Item.Name</a><br />
                                 </td>

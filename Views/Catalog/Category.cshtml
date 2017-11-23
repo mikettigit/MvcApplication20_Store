@@ -46,16 +46,25 @@
             <!--Middle Part Start-->
             <div id="content" class="col-sm-9">
                 <h1 class="title">@category.Name</h1>
-                @if (category.Children.Count > 0) { 
+                @if (category.Children.Count > 0 || category.Files.Count > 0) { 
                     <h3 class="subtitle">Вложенные</h3>
                     <div class="category-list-thumb row">
                         @foreach (var ChildCategory in category.Children) { 
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
                                 <a href="@ChildCategory.RelativeUrl">
-                                    <img src="@((ChildCategory.Pictures.Count > 0) ? ChildCategory.Pictures.FirstOrDefault().UrlForSized(108, 108) : "")" alt="@ChildCategory.Name" />
+                                    <img src="@ChildCategory.Icon.UrlForSized(108, 108)" alt="@ChildCategory.Name" />
                                 </a> 
                                 <a href="@ChildCategory.RelativeUrl">@ChildCategory.Name</a> 
                             </div>
+                        }
+                        @foreach (var ChildFile in category.Files)
+                        {
+                           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 file-for-viewer">
+                               <a href="@ChildFile.Url" title="@ChildFile.Filename">
+                                   <img src="@ChildFile.IconUrl" alt="@ChildFile.Filename" />
+                               </a> 
+                               <a href="@ChildFile.Url" title="@ChildFile.Filename">@ChildFile.Filename</a> 
+                            </div> 
                         }
                     </div>
                 }
@@ -92,7 +101,7 @@
                         {
                             <div class="product-layout product-list col-xs-12">
                                 <div class="product-thumb">
-                                    <div class="image"><a href="@item.RelativeUrl"><img src="@((item.Pictures.Count > 0) ? item.Pictures.FirstOrDefault().UrlForSized(200, 200) : "")" alt="@item.Name" title="@item.Name" class="img-responsive" /></a></div>
+                                    <div class="image"><a href="@item.RelativeUrl"><img src="@item.Icon.UrlForSized(200, 200)" alt="@item.Name" title="@item.Name" class="img-responsive" /></a></div>
                                     <div>
                                         <div class="caption">
                                             <h4><a href="@item.RelativeUrl">@item.Name</a></h4>
@@ -114,6 +123,8 @@
                         }
                     </div>
                 }
+            </div>
+            <div id="altercontent" class="col-sm-9" style="display:none;">
             </div>
             <!--Middle Part End-->
         </div>

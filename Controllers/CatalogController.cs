@@ -42,5 +42,6 @@ namespace MvcApplication20.Controllers
             Post post = Dm.GetItem(id);
             return View(post);
         }
+
     }
 }

@@ -148,7 +148,7 @@
     <Compile Include="Models\Data\DataModel.cs" />
     <Compile Include="Models\Data\Post.cs" />
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\Picture.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +252,7 @@
     <Content Include="js\bootstrap\js\bootstrap.min.js" />
     <Content Include="js\bootstrap\js\bootstrap.min_-716652674_382100040.js" />
     <Content Include="js\account.js" />
+    <Content Include="js\catalog.js" />
     <Content Include="js\history.js" />
     <Content Include="js\cart.js" />
     <Content Include="js\custom.js" />

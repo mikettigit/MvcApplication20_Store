@@ -11,10 +11,11 @@ namespace MvcApplication20.Models
     public class CatalogParams
     {
         public static readonly string BasePath;
-        public static readonly string BaseImagePath;
+        public static readonly string ProceedImagesBasePath;
         public static readonly string BaseCategoryUrl;
         public static readonly string BaseItemUrl;
-        public static readonly string BaseImageUrl;
+        public static readonly string ProceedImagesBaseUrl;
+        public static readonly string BaseFileUrl;
 
         public static string QueryByPath(string _path)
         {
@@ -24,10 +25,11 @@ namespace MvcApplication20.Models
         static CatalogParams() 
         {
             BasePath = HttpContext.Current.Server.MapPath("/catalog");
-            BaseImagePath = HttpContext.Current.Server.MapPath("/Images");
+            ProceedImagesBasePath = HttpContext.Current.Server.MapPath("/ProceedImages");
             BaseCategoryUrl = "/Catalog/Category";
             BaseItemUrl = "/Catalog/Item";
-            BaseImageUrl = "/Images";
+            ProceedImagesBaseUrl = "/ProceedImages";
+            BaseFileUrl = "/Catalog";
         }
     }
 
@@ -39,12 +41,26 @@ namespace MvcApplication20.Models
         public string Path;
         public string RelativeUrl;
 
-        public List<Picture> Pictures;
+        public List<PictureResource> Pictures;
+        public PictureResource Icon
+        {
+            get {
+                if (Pictures.Count > 0)
+                {
+                    return Pictures.First();
+                }
+                else {
+                    return new PictureResource(CatalogParams.ProceedImagesBaseUrl + "/image", HttpContext.Current.Server.MapPath("/image/") + "no_image.jpg");
+                }
+            }
+        }
+        public List<FileResource> Files;
         public string Description;
 
         public CatalogItem()
         {
-            Pictures = new List<Picture>();
+            Pictures = new List<PictureResource>();
+            Files = new List<FileResource>();
         }
     }
 
@@ -106,7 +122,8 @@ namespace MvcApplication20.Models
         public Category(string _query) : base()
         {
             RelativeUrl = CatalogParams.BaseCategoryUrl + "/" + _query;
-            string RelativeImageUrl = CatalogParams.BaseImageUrl + "/" + _query;
+            string RelativeImageUrl = CatalogParams.ProceedImagesBaseUrl + "/catalog/" + _query;
+            string RelativeFileUrl = CatalogParams.BaseFileUrl + "/" + _query;
             string RelativePath = _query.Replace("/", "\\");
             Path = CatalogParams.BasePath + "\\" + RelativePath;
 
@@ -138,10 +155,20 @@ namespace MvcApplication20.Models
                     {
                         for (var i = 0; i < picturenames.Count(); i++)
                         {
-                            Pictures.Add(new Picture(RelativeImageUrl, picturenames[i]));
+                            Pictures.Add(new PictureResource(RelativeImageUrl, picturenames[i]));
                         }
                     }
 
+                    //3
+                    var pdfSearchPattern = new System.Text.RegularExpressions.Regex(@"$(?<=\.(pdf|xls|xlsx))", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                    var pdfnames = Directory.GetFiles(Path).Where(f => pdfSearchPattern.IsMatch(f)).OrderBy(f => f).ToList();
+                    if (pdfnames.Count() > 0)
+                    {
+                        for (var i = 0; i < pdfnames.Count(); i++)
+                        {
+                            Files.Add(new FileResource(RelativeFileUrl, pdfnames[i]));
+                        }
+                    }
                 }
 
             }
@@ -180,7 +207,8 @@ namespace MvcApplication20.Models
             : base()
         {
             RelativeUrl = CatalogParams.BaseItemUrl + "/" + _query.Replace(".item", "");
-            string RelativeImageUrl = CatalogParams.BaseImageUrl + "/" + _query;
+            string RelativeImageUrl = CatalogParams.ProceedImagesBaseUrl + "/catalog/" + _query;
+            string RelativeFileUrl = CatalogParams.BaseFileUrl + "/" + _query;
             string RelativePath = _query.Replace("/", "\\");
             Path = CatalogParams.BasePath + "\\" + RelativePath;
 
@@ -211,7 +239,7 @@ namespace MvcApplication20.Models
                 {
                     for (var i = 0; i < picturenames.Count(); i++)
                     {
-                        Pictures.Add(new Picture(RelativeImageUrl, picturenames[i]));
+                        Pictures.Add(new PictureResource(RelativeImageUrl, picturenames[i]));
                     }
                 }
 
@@ -221,6 +249,17 @@ namespace MvcApplication20.Models
                 if (pricenames.Count() > 0)
                 {
                     Price = System.IO.Path.GetFileNameWithoutExtension(pricenames.First());
+                }
+
+                //4
+                var pdfSearchPattern = new System.Text.RegularExpressions.Regex(@"$(?<=\.(pdf|xls|xlsx))", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                var pdfnames = Directory.GetFiles(Path).Where(f => pdfSearchPattern.IsMatch(f)).OrderBy(f => f).ToList();
+                if (pdfnames.Count() > 0)
+                {
+                    for (var i = 0; i < pdfnames.Count(); i++)
+                    {
+                        Files.Add(new FileResource(RelativeFileUrl, pdfnames[i]));
+                    }
                 }
 
             }
