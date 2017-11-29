@@ -1,32 +1,15 @@
 ﻿@using MvcApplication20.Models;
-@functions{
-    Category category;
-    List<Category> Parents;
-    Category Root;
-}
+
 @{
-    category = Model as MvcApplication20.Models.Category;
-    Parents = category.Parents;
-    Root = (Parents.Count > 0) ? Parents.Last() : category;
+    Category TargetCategory = Model as MvcApplication20.Models.Category;
+    List<Category> Parents = TargetCategory.Parents;
+    Category Root = (Parents.Count > 0) ? Parents.Last() : TargetCategory;
 }
 
 <h3 class="subtitle">Каталог</h3>
 <div class="box-category">
-    @LineOut(Root)
+    <ul id="cat_accordion" style="display:block;">
+        @CatalogHtmlHelpers.LineOut(Root, TargetCategory)
+    </ul>
 </div>
 
-@helper LineOut(Category CurrentCategory){
-    <ul @((CurrentCategory == Root) ? "id=cat_accordion" : "") style="display:block;">
-        @foreach (var Child in CurrentCategory.Children)
-        {
-            <li>
-                <a href="@Child.RelativeUrl" @((Child.RelativeUrl == category.RelativeUrl) ? "class=active" : "")>@Child.Name</a>
-                @if (Child.HasChildren)
-                {
-                    <span class="down"></span>
-                }
-                @LineOut(Child)
-            </li>
-        }
-    </ul>
-}

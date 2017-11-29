@@ -1,0 +1,21 @@
+﻿@using MvcApplication20.Models
+
+@helper LineOut(Category CurrentCategory, Category TargetCategory)
+{
+    foreach (Category Child in CurrentCategory.Children)
+    {
+        <li>
+            <a href="@Child.RelativeUrl" @((Child.RelativeUrl == TargetCategory.RelativeUrl) ? "class=active" : "")>@Child.Name</a>
+            @if (Child.HasChildren)
+            {
+                <span class="down" data-id="@Child.Id"></span>
+            }
+            <ul style="display:block;">
+                @if (TargetCategory.Parents.Count(c => c.Id == Child.Id) > 0 || Child.Id == TargetCategory.Id)
+                {
+                    @CatalogHtmlHelpers.LineOut(Child, TargetCategory)
+                }
+            </ul>
+        </li>
+    }
+}

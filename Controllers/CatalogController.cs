@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcApplication20.Models;
+using MvcApplication20.Helpers;
 
 namespace MvcApplication20.Controllers
 {
@@ -41,6 +42,26 @@ namespace MvcApplication20.Controllers
         {
             Post post = Dm.GetItem(id);
             return View(post);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult CatalogTreeBranch(FormCollection collection)
+        {
+            JsonMessage jm = new JsonMessage();
+            try
+            {
+                string id = collection["id"];
+                Category category = new Category(id.TrimEnd(new[] { '/' }));
+                string template = RenderRazorViewToString("TreeBranch", category);
+                jm.Result = true;
+                jm.Object = template;
+            }
+            catch (Exception e)
+            {
+                jm.Result = false;
+                jm.Message = "Во время обработки произошла ошибка - " + e.ToString();
+            }
+            return Json(jm);
         }
 
     }

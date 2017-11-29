@@ -309,6 +309,15 @@
   <ItemGroup>
     <Content Include="Views\Shared\TopBar.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\PartialLeftCategories - Copy.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\TreeBranch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\CatalogHtmlHelpers.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

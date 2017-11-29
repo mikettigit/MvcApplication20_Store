@@ -12,11 +12,6 @@ namespace MvcApplication20.Controllers
         //
         // GET: /Home/
 
-        private DataModel dataModel;
-
-        protected DataModel Dm { get { return dataModel ?? (dataModel = new DataModel()); } }
-
-
         public ActionResult Index()
         {
             return View(Dm);

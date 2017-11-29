@@ -1,0 +1,7 @@
+﻿@using MvcApplication20.Models;
+
+@{
+    Category TargetCategory = Model as MvcApplication20.Models.Category;
+}
+
+@CatalogHtmlHelpers.LineOut(TargetCategory, TargetCategory)

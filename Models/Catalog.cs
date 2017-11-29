@@ -129,7 +129,7 @@ namespace MvcApplication20.Models
 
             Id = _query;
             isRoot = String.IsNullOrWhiteSpace(_query);
-            HasChildren = Directory.EnumerateDirectories(Path).Any();
+            HasChildren = Directory.EnumerateDirectories(Path).Any(p => !p.EndsWith(".item"));
 
             string[] PathParts = RelativePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
             if (!isRoot) {
