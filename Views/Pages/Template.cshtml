@@ -1,0 +1,29 @@
+﻿@using MvcApplication20.Models
+
+@{
+    DataModel Dm = Model as DataModel;
+}
+
+<div id="container">
+    <div class="container">
+        <!-- Breadcrumb Start-->
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-home"></i></a></li>
+            <li><a href="/Home/Index">О нас</a></li>
+        </ul>
+        <!-- Breadcrumb End-->
+        <div class="row">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-12">
+                <h1 class="title">Шаблон</h1>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Текст шаблона</p>
+                    </div>
+                </div>
+                @*@Html.Raw(Dm.GetItem("19").Content)*@
+            </div>
+            <!--Middle Part End -->
+        </div>
+    </div>
+</div>

@@ -135,6 +135,7 @@
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\ControllerWrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -310,13 +311,13 @@
     <Content Include="Views\Shared\TopBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\PartialLeftCategories - Copy.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\TreeBranch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\CatalogHtmlHelpers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pages\Template.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
