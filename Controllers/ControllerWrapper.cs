@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace MvcApplication20.Controllers
 {
@@ -97,14 +98,14 @@ namespace MvcApplication20.Controllers
         {
             ViewBag.Account = Account;
 
-            string actionName = filterContext.ActionDescriptor.ActionName;
-            string controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
+            string actionName = filterContext.ActionDescriptor.ActionName.ToLower();
+            string controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName.ToLower();
 
             if (!Account.IsAuthorized)
             {
-                if (controllerName == "Catalog")
+                if (controllerName == "catalog")
                 {
-                    filterContext.Result = RedirectToAction("Login", "Account");
+                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Account" }, { "action", "Login" } });
                 }
             }
         }
